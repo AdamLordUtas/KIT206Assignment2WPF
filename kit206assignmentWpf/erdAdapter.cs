@@ -348,7 +348,7 @@ namespace KIT206Assignment2.Database
 			//List to store found publications if any
 			List<Publication> foundPublications = new List<Publication>();
 			
-			DateTime threeYears = DateTime.Today.AddYears(-4);
+			DateTime threeYears = DateTime.Today.AddYears(-3);
 
 			Console.WriteLine(threeYears);
 

@@ -55,6 +55,8 @@ namespace kit206assignmentWpf
                     resDegree.Content = selectedRes.degree;
                     resSupervisor.Content = selectedRes.supervisorId;
                     resPosition.Content = selectedRes.position.Title();
+
+                    PublicationDetailsClear();
                 }
             }
             catch (Exception ex)
@@ -62,6 +64,21 @@ namespace kit206assignmentWpf
                 MessageBox.Show(String.Format("Error getting researcher details, {0}\n\n{1}", ex.Message, ex));
                 throw;
             }
+        }
+
+        private void ResearcherDetailsClear()
+        {
+            resId.Content = "";
+            resType.Content = "";
+            resGivenName.Content = "";
+            resFamilyName.Content = "";
+            resTitle.Content = "";
+            resUnit.Content = "";
+            resCampus.Content = "";
+            resEmail.Content = "";
+            resDegree.Content = "";
+            resSupervisor.Content = "";
+            resPosition.Content = "";
         }
 
 
@@ -88,6 +105,16 @@ namespace kit206assignmentWpf
                 MessageBox.Show(String.Format("Error getting publication details, {0}\n\n{1}", ex.Message, ex));
                 throw;
             }
+        }
+
+        private void PublicationDetailsClear() 
+        {
+            pubDoi.Content = "";
+            pubTitle.Content = "";
+            pubAuthors.Content = "";
+            pubYear.Content = "";
+            pubTitle.Content = "";
+            available.Content = "";
         }
 
         private void FetchPublications(object sender, RoutedEventArgs e)
@@ -136,6 +163,8 @@ namespace kit206assignmentWpf
                         resControl.ResetList();
                         break;
                 }
+                ResearcherDetailsClear();
+                PublicationDetailsClear();
             }
             catch (Exception ex)
             {
