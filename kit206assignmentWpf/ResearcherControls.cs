@@ -12,7 +12,7 @@ namespace KIT206Assignment2.Control
     class ResearcherControls
     {
         public List<Researcher> masterList = new List<Researcher>();
-        ObservableCollection<Researcher> displayList;
+        public ObservableCollection<Researcher> displayList;
         erdAdapter adapter = new erdAdapter();
 
         //Loads the researchers

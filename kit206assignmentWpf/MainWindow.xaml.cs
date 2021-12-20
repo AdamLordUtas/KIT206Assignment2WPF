@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KIT206Assignment2.Control;
 
 namespace kit206assignmentWpf
 {
@@ -20,9 +21,16 @@ namespace kit206assignmentWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        ResearcherControls resControl = new ResearcherControls();
+        PublicationControls pubControl = new PublicationControls();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            resControl.LoadResearchers();
+
+            researcherListBox.ItemsSource = resControl.displayList;
         }
     }
 }
