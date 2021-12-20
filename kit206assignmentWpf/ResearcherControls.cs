@@ -22,7 +22,16 @@ namespace KIT206Assignment2.Control
             displayList = new ObservableCollection<Researcher>(masterList);
         }
 
-        public Researcher getFullDetails(int id) 
+        public void ResetList() 
+        {
+            displayList.Clear();
+            foreach (var item in masterList)
+            {
+                displayList.Add(item);
+            }
+        }
+
+        public Researcher GetFullDetails(int id) 
         {
             return adapter.GetFullResearcherDetails(id);
         }

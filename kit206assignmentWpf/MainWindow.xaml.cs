@@ -40,7 +40,7 @@ namespace kit206assignmentWpf
         private void researcherListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Researcher selectedRes = (Researcher)researcherListBox.SelectedItem;
-            selectedRes = resControl.getFullDetails(selectedRes.id);
+            selectedRes = resControl.GetFullDetails(selectedRes.id);
 
             resId.Content = selectedRes.id;
             resType.Content = selectedRes.type;
@@ -55,7 +55,7 @@ namespace kit206assignmentWpf
             resPosition.Content = selectedRes.position.Title();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void FetchResearchers(object sender, RoutedEventArgs e)
         {
             Researcher selectedRes = (Researcher)researcherListBox.SelectedItem;
             pubControl.LoadPublications(selectedRes.id);
@@ -65,26 +65,26 @@ namespace kit206assignmentWpf
         {
             switch (levelFilter.SelectedIndex)
             {
-                case 0:
+                case 1:
                     resControl.FilterByLevel(Level.N);
                     break;
-                case 1:
+                case 2:
                     resControl.FilterByLevel(Level.A);
                     break;
-                case 2:
+                case 3:
                     resControl.FilterByLevel(Level.B);
                     break;
-                case 3:
+                case 4:
                     resControl.FilterByLevel(Level.C);
                     break;
-                case 4:
+                case 5:
                     resControl.FilterByLevel(Level.D);
                     break;
-                case 5:
+                case 6:
                     resControl.FilterByLevel(Level.E);
                     break;
                 default:
-                    resControl.FilterByLevel(Level.N);
+                    resControl.ResetList();
                     break;
             }
         }

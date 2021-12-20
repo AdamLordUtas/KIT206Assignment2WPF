@@ -26,7 +26,7 @@
             <TextBox x:Name="researchSearchText" Grid.Row="0" Grid.Column="0" Margin="10,25,5,0" Text="Search" Width="auto" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
             <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10,54,0,0" Text="Filter by employment level:" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <ComboBox x:Name="levelFilter" Margin="10,70,270,10" VerticalAlignment="Top" Width="auto" SelectedIndex="0" SelectionChanged="levelFilter_SelectionChanged">
+            <ComboBox x:Name="levelFilter" Margin="10,70,270,10" VerticalAlignment="Top" Width="auto" SelectionChanged="levelFilter_SelectionChanged">
                 <ComboBoxItem>None</ComboBoxItem>
                 <ComboBoxItem>Students</ComboBoxItem>
                 <ComboBoxItem>A</ComboBoxItem>
@@ -139,7 +139,7 @@
             </StackPanel>
 
             <ListBox x:Name="publicationListBox" Grid.Row="2" Margin="5,40,5,5" Width="auto" Height="auto"/>
-            <Button Content="Fetch Publications" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Fetch Publications" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Click="FetchResearchers"/>
             <Button Content="Order by Year" HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
