@@ -104,6 +104,10 @@
                     <Label Content="Position:"></Label>
                     <Label Content="{Binding Path=resPosition}"></Label>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Performance:"></Label>
+                    <Label Content="{Binding Path=resPerformance}"></Label>
+                </StackPanel>
             </StackPanel>
 
             <StackPanel Grid.Row="1">
