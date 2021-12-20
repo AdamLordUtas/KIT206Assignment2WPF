@@ -157,15 +157,23 @@ namespace kit206assignmentWpf
             }         
         }
 
-        private void Button_Sort_Descending(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged_YearFilter(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                pubControl.OrderByDescending();
+                switch (publicationYearFilter.SelectedIndex)
+                {
+                    case 0:
+                        pubControl.OrderByYear();
+                        break;
+                    case 1:
+                        pubControl.OrderByDescending();
+                        break;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(String.Format("Issue ordering by descending year, {0}\n\n{1}", ex.Message, ex));
+                MessageBox.Show(String.Format("Error filtering by year, {0}\n\n{1}", ex.Message, ex));
                 throw;
             }
         }

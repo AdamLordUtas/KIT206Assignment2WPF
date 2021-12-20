@@ -142,7 +142,11 @@
 
             <ListBox x:Name="publicationListBox" DisplayMemberPath="title" Grid.Row="2" Margin="5,40,5,5" Width="auto" Height="auto" SelectionChanged="publicationListBox_SelectionChanged"/>
             <Button Content="Fetch Publications" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Click="FetchPublications"/>
-            <Button Content="Order by Year" HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="2" VerticalAlignment="Top" Click="Button_Sort_Descending"/>
+            <ComboBox x:Name="publicationYearFilter" Margin="130,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged_YearFilter">
+                <ComboBoxItem>Order by ascending year</ComboBoxItem>
+                <ComboBoxItem>Order by descending year</ComboBoxItem>
+            </ComboBox>
+
         </Grid>
     </Grid>
 
