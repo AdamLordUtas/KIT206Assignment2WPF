@@ -1,0 +1,145 @@
+﻿<Window x:Class="kit206assignmentWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kit206assignmentWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="400*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1"></Border>
+            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1"></Border>
+
+            <!--Researcher search -->
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10,9,0,0" Text="Search for researcher:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="researchSearchText" Grid.Row="0" Grid.Column="0" Margin="10,25,5,0" Text="Search" Width="auto" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="10,54,0,0" Text="Filter by employment level:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <ComboBox x:Name="levelFilter" Margin="10,70,270,10" VerticalAlignment="Top" Width="auto" SelectedIndex="0">
+                <ComboBoxItem>None</ComboBoxItem>
+                <ComboBoxItem>Students</ComboBoxItem>
+                <ComboBoxItem>A</ComboBoxItem>
+                <ComboBoxItem>B</ComboBoxItem>
+                <ComboBoxItem>C</ComboBoxItem>
+                <ComboBoxItem>D</ComboBoxItem>
+                <ComboBoxItem>E</ComboBoxItem>
+            </ComboBox>
+
+            <!--Researcher list -->
+            <ListBox x:Name="researcherListBox" Grid.Row="1" Margin="5,5,5,5" Width="auto" Height="auto"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="200*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="1"></Border>
+            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1"></Border>
+            <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1"></Border>
+
+            <!--Column 2 Row 1, Researcher Details -->
+            <StackPanel x:Name="researcherDetails" Grid.Row="0" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Researcher" FontWeight="Bold"></Label>
+                </StackPanel>
+                
+                <Image Width="100" Height="100" HorizontalAlignment="Left"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="ID:"></Label>
+                    <Label Content="{Binding Path=resId}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Type:"></Label>
+                    <Label Content="{Binding Path=resType}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Given Name:"></Label>
+                    <Label Content="{Binding Path=resGivenName}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Family Name:"></Label>
+                    <Label Content="{Binding Path=resFamilyName}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Title:"></Label>
+                    <Label Content="{Binding Path=resTitle}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Unit:"></Label>
+                    <Label Content="{Binding Path=resUnit}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Campus:"></Label>
+                    <Label Content="{Binding Path=resCampus}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Email:"></Label>
+                    <Label Content="{Binding Path=resEmail}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Degree:"></Label>
+                    <Label Content="{Binding Path=resDegree}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Supervisor ID:"></Label>
+                    <Label Content="{Binding Path=resSupervisor}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Position:"></Label>
+                    <Label Content="{Binding Path=resPosition}"></Label>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Publication" FontWeight="Bold"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="DOI:"></Label>
+                    <Label Content="{Binding Path=pubDoi}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Title:"></Label>
+                    <Label Content="{Binding Path=pubTitle}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Authors:"></Label>
+                    <Label Content="{Binding Path=pubAuthors}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Year:"></Label>
+                    <Label Content="{Binding Path=pubYear}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Type:"></Label>
+                    <Label Content="{Binding Path=pubType}"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Available:"></Label>
+                    <Label Content="{Binding Path=pubAvailable}"></Label>
+                </StackPanel>
+            </StackPanel>
+
+            <ListBox x:Name="publicationListBox" Grid.Row="2" Margin="5,40,5,5" Width="auto" Height="auto"/>
+            <Button Content="Fetch Publications" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Button Content="Order by Year" HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        </Grid>
+    </Grid>
+
+</Window>
