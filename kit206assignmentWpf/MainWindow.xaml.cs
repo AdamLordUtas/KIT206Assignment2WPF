@@ -25,8 +25,6 @@ namespace kit206assignmentWpf
         ResearcherControls resControl = new ResearcherControls();
         PublicationControls pubControl = new PublicationControls();
 
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -157,6 +155,19 @@ namespace kit206assignmentWpf
                 MessageBox.Show(String.Format("Error filtering list, {0}\n\n{1}", ex.Message, ex));
                 throw;
             }         
+        }
+
+        private void Button_Sort_Descending(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                pubControl.OrderByDescending();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("Issue ordering by descending year, {0}\n\n{1}", ex.Message, ex));
+                throw;
+            }
         }
     }
 }

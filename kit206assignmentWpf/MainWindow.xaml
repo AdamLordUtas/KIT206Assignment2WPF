@@ -142,7 +142,7 @@
 
             <ListBox x:Name="publicationListBox" DisplayMemberPath="title" Grid.Row="2" Margin="5,40,5,5" Width="auto" Height="auto" SelectionChanged="publicationListBox_SelectionChanged"/>
             <Button Content="Fetch Publications" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Click="FetchPublications"/>
-            <Button Content="Order by Year" HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+            <Button Content="Order by Year" HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="2" VerticalAlignment="Top" Click="Button_Sort_Descending"/>
         </Grid>
     </Grid>
 
