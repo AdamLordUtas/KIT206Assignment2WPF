@@ -88,5 +88,10 @@ namespace kit206assignmentWpf
                     break;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            resControl.FilterByName(researchSearchText.Text);
+        }
     }
 }
