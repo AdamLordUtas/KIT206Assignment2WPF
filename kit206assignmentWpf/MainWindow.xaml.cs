@@ -55,6 +55,7 @@ namespace kit206assignmentWpf
                     resDegree.Content = selectedRes.degree;
                     resSupervisor.Content = selectedRes.supervisorId;
                     resPosition.Content = selectedRes.position.Title();
+                    CalculatePerformance(selectedRes);
 
                     PublicationDetailsClear();
                     pubControl.displayList.Clear();
@@ -81,7 +82,6 @@ namespace kit206assignmentWpf
             resSupervisor.Content = "";
             resPosition.Content = "";
         }
-
 
         private void publicationListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -207,6 +207,11 @@ namespace kit206assignmentWpf
                 MessageBox.Show(String.Format("Error filtering by year, {0}\n\n{1}", ex.Message, ex));
                 throw;
             }
+        }
+
+        private void CalculatePerformance(Researcher researcher) 
+        {
+            resPerformance.Content = resControl.Performance(researcher);
         }
     }
 }

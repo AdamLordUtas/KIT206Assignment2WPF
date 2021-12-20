@@ -342,17 +342,17 @@ namespace KIT206Assignment2.Database
 		}
 
 		//Return the count of the publications for a researchers in the last three years
-		public int GetPublicationCount(int researcherId)
+		public double GetPublicationCount(int researcherId)
 
 		{
 			//List to store found publications if any
 			List<Publication> foundPublications = new List<Publication>();
-			
+
 			DateTime threeYears = DateTime.Today.AddYears(-3);
 
 			Console.WriteLine(threeYears);
 
-			int count = 0;
+			double count = 0;
 
 			//Creating a connection and a reader
 			conn = SqlConnection();
@@ -364,25 +364,25 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query creates a joined table of all the titles of pubilcations associated with the rsearcher based on their id 
-				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi, publication.available from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0} and publication.available >= {1})", researcherId, threeYears.ToString("yyyy/MM/dd")), conn);
+				MySqlCommand cmd = new MySqlCommand(String.Format("select publication.doi, publication.available from researcher_publication join publication on researcher_publication.doi = publication.doi where researcher_publication.researcher_id = {0} and publication.available >= '{1}'", researcherId, threeYears.ToString("yyyy/MM/dd")), conn);
 				rdr = cmd.ExecuteReader();
 
-					while (rdr.Read())
-					{
-						Console.WriteLine(rdr.GetString(0) + " " + rdr.GetDateTime(1));
-						count++;
-					}
-
+				while (rdr.Read())
+				{
+					Console.WriteLine(rdr.GetString(0) + " " + rdr.GetDateTime(1));
+					count++;
 				}
+
+			}
 			catch (Exception e)
 			{
 				Console.WriteLine("Something went wrong " + e);
 			}
-			
+
 			finally
 			{
 				// close the reader
-				if(rdr != null)
+				if (rdr != null)
 				{
 					rdr.Close();
 				}
