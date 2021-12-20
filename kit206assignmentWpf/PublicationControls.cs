@@ -22,6 +22,11 @@ namespace KIT206Assignment2.Control
             displayList = new ObservableCollection<Publication>(masterList);
         }
 
+        public Publication GetFullDetails(Publication publication) 
+        {
+            return adapter.GetFullPublicationDetails(publication);
+        }
+
         //Get the display list as a list of publicatons
         public List<Publication> GetPublications()
         {

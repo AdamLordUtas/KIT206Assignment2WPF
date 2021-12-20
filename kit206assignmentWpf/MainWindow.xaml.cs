@@ -55,10 +55,25 @@ namespace kit206assignmentWpf
             resPosition.Content = selectedRes.position.Title();
         }
 
-        private void FetchResearchers(object sender, RoutedEventArgs e)
+
+        private void publicationListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Publication selectedPub = (Publication)publicationListBox.SelectedItem;
+            selectedPub = pubControl.GetFullDetails(selectedPub);
+
+            pubDoi.Content = selectedPub.doi;
+            pubTitle.Content = selectedPub.title;
+            pubAuthors.Content = selectedPub.authours;
+            pubYear.Content = selectedPub.year;
+            pubTitle.Content = selectedPub.type;
+            available.Content = selectedPub.available;
+        }
+
+        private void FetchPublications(object sender, RoutedEventArgs e)
         {
             Researcher selectedRes = (Researcher)researcherListBox.SelectedItem;
             pubControl.LoadPublications(selectedRes.id);
+            publicationListBox.ItemsSource = pubControl.displayList;
         }
 
         private void levelFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
