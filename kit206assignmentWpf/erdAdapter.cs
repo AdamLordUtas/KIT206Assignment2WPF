@@ -130,7 +130,7 @@ namespace KIT206Assignment2.Database
 	
 
 		//Get the full details of an individual researcher to be displayed
-		public Researcher GetFullResearcherDetails(Researcher researcher) 
+		public Researcher GetFullResearcherDetails(int id) 
 		{
 			//For storing our researchers details
 			Researcher foundResearcher = new Researcher();
@@ -145,7 +145,7 @@ namespace KIT206Assignment2.Database
 				conn.Open();
 
 				//Query uses the id of a researcher to get more of their details for display
-				MySqlCommand cmd = new MySqlCommand(String.Format("select * from researcher where id = {0}", researcher.id), conn);
+				MySqlCommand cmd = new MySqlCommand(String.Format("select * from researcher where id = {0}", id), conn);
 				rdr = cmd.ExecuteReader();
 
 				while (rdr.Read())

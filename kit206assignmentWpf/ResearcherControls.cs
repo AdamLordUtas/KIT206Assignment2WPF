@@ -22,6 +22,11 @@ namespace KIT206Assignment2.Control
             displayList = new ObservableCollection<Researcher>(masterList);
         }
 
+        public Researcher getFullDetails(int id) 
+        {
+            return adapter.GetFullResearcherDetails(id);
+        }
+
         //Get the display list as a list of researchers
         public List<Researcher> GetResearchers() 
         {

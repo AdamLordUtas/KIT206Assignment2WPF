@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using KIT206Assignment2.Control;
+using KIT206Assignment2.Research;
 
 namespace kit206assignmentWpf
 {
@@ -24,6 +25,8 @@ namespace kit206assignmentWpf
         ResearcherControls resControl = new ResearcherControls();
         PublicationControls pubControl = new PublicationControls();
 
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +34,59 @@ namespace kit206assignmentWpf
             resControl.LoadResearchers();
 
             researcherListBox.ItemsSource = resControl.displayList;
+            publicationListBox.ItemsSource = pubControl.displayList;
+        }
+
+        private void researcherListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Researcher selectedRes = (Researcher)researcherListBox.SelectedItem;
+            selectedRes = resControl.getFullDetails(selectedRes.id);
+
+            resId.Content = selectedRes.id;
+            resType.Content = selectedRes.type;
+            resGivenName.Content = selectedRes.givenName;
+            resFamilyName.Content = selectedRes.familyName;
+            resTitle.Content = selectedRes.title;
+            resUnit.Content = selectedRes.unit;
+            resCampus.Content = selectedRes.campusSting();
+            resEmail.Content = selectedRes.email;
+            resDegree.Content = selectedRes.degree;
+            resSupervisor.Content = selectedRes.supervisorId;
+            resPosition.Content = selectedRes.position.Title();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Researcher selectedRes = (Researcher)researcherListBox.SelectedItem;
+            pubControl.LoadPublications(selectedRes.id);
+        }
+
+        private void levelFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (levelFilter.SelectedIndex)
+            {
+                case 0:
+                    resControl.FilterByLevel(Level.N);
+                    break;
+                case 1:
+                    resControl.FilterByLevel(Level.A);
+                    break;
+                case 2:
+                    resControl.FilterByLevel(Level.B);
+                    break;
+                case 3:
+                    resControl.FilterByLevel(Level.C);
+                    break;
+                case 4:
+                    resControl.FilterByLevel(Level.D);
+                    break;
+                case 5:
+                    resControl.FilterByLevel(Level.E);
+                    break;
+                default:
+                    resControl.FilterByLevel(Level.N);
+                    break;
+            }
         }
     }
 }
