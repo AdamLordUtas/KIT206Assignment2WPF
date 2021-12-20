@@ -58,7 +58,7 @@ namespace kit206assignmentWpf
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading researcher details " + ex);
+                MessageBox.Show(String.Format("Error getting researcher details, {0}\n\n{1}", ex.Message, ex));
                 throw;
             }
         }
@@ -80,8 +80,8 @@ namespace kit206assignmentWpf
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading publicatrion details " + ex);
-                //throw;
+                MessageBox.Show(String.Format("Error getting publication details, {0}\n\n{1}", ex.Message, ex));
+                throw;
             }
         }
 
@@ -95,11 +95,9 @@ namespace kit206assignmentWpf
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error fetching publications " + ex);
-                //throw;
+                MessageBox.Show(String.Format("Error getting publications, {0}\n\n{1}", ex.Message, ex));
+                throw;
             }
-
-
         }
 
         private void levelFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -133,12 +131,12 @@ namespace kit206assignmentWpf
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error filtering by level " + ex);
-                //throw;
+                MessageBox.Show(String.Format("Error filtering researchers, {0}\n\n{1}", ex.Message, ex));
+                throw;
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Search(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -146,8 +144,8 @@ namespace kit206assignmentWpf
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error with search " + ex);
-                //throw;
+                MessageBox.Show(String.Format("Error filtering list, {0}\n\n{1}", ex.Message, ex));
+                throw;
             }         
         }
     }
