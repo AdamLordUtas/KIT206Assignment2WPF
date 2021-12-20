@@ -42,19 +42,22 @@ namespace kit206assignmentWpf
             try
             {
                 Researcher selectedRes = (Researcher)researcherListBox.SelectedItem;
-                selectedRes = resControl.GetFullDetails(selectedRes.id);
+                if (selectedRes != null)
+                {
+                    selectedRes = resControl.GetFullDetails(selectedRes.id);
 
-                resId.Content = selectedRes.id;
-                resType.Content = selectedRes.type;
-                resGivenName.Content = selectedRes.givenName;
-                resFamilyName.Content = selectedRes.familyName;
-                resTitle.Content = selectedRes.title;
-                resUnit.Content = selectedRes.unit;
-                resCampus.Content = selectedRes.campusSting();
-                resEmail.Content = selectedRes.email;
-                resDegree.Content = selectedRes.degree;
-                resSupervisor.Content = selectedRes.supervisorId;
-                resPosition.Content = selectedRes.position.Title();
+                    resId.Content = selectedRes.id;
+                    resType.Content = selectedRes.type;
+                    resGivenName.Content = selectedRes.givenName;
+                    resFamilyName.Content = selectedRes.familyName;
+                    resTitle.Content = selectedRes.title;
+                    resUnit.Content = selectedRes.unit;
+                    resCampus.Content = selectedRes.campusSting();
+                    resEmail.Content = selectedRes.email;
+                    resDegree.Content = selectedRes.degree;
+                    resSupervisor.Content = selectedRes.supervisorId;
+                    resPosition.Content = selectedRes.position.Title();
+                }
             }
             catch (Exception ex)
             {
@@ -69,14 +72,18 @@ namespace kit206assignmentWpf
             try
             {
                 Publication selectedPub = (Publication)publicationListBox.SelectedItem;
-                selectedPub = pubControl.GetFullDetails(selectedPub);
 
-                pubDoi.Content = selectedPub.doi;
-                pubTitle.Content = selectedPub.title;
-                pubAuthors.Content = selectedPub.authours;
-                pubYear.Content = selectedPub.year;
-                pubTitle.Content = selectedPub.type;
-                available.Content = selectedPub.available;
+                if (selectedPub != null)
+                {
+                    selectedPub = pubControl.GetFullDetails(selectedPub);
+
+                    pubDoi.Content = selectedPub.doi;
+                    pubTitle.Content = selectedPub.title;
+                    pubAuthors.Content = selectedPub.authours;
+                    pubYear.Content = selectedPub.year;
+                    pubTitle.Content = selectedPub.type;
+                    available.Content = selectedPub.available;
+                }
             }
             catch (Exception ex)
             {
