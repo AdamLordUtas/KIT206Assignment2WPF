@@ -97,8 +97,11 @@ namespace kit206assignmentWpf
             try
             {
                 Researcher selectedRes = (Researcher)researcherListBox.SelectedItem;
-                pubControl.LoadPublications(selectedRes.id);
-                publicationListBox.ItemsSource = pubControl.displayList;
+                if(selectedRes != null)
+                {
+                    pubControl.LoadPublications(selectedRes.id);
+                    publicationListBox.ItemsSource = pubControl.displayList;
+                }   
             }
             catch (Exception ex)
             {
