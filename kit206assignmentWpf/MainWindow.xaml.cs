@@ -57,6 +57,7 @@ namespace kit206assignmentWpf
                     resPosition.Content = selectedRes.position.Title();
 
                     PublicationDetailsClear();
+                    pubControl.displayList.Clear();
                 }
             }
             catch (Exception ex)
@@ -165,6 +166,7 @@ namespace kit206assignmentWpf
                 }
                 ResearcherDetailsClear();
                 PublicationDetailsClear();
+                pubControl.displayList.Clear();
             }
             catch (Exception ex)
             {
