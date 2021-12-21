@@ -44,8 +44,6 @@ namespace KIT206Assignment2.Database
 		/*
 		 * Researcher interactions with database
 		 */
-		
-		
 		//Get the names of the researchers to be presented in a list
 		public List<Researcher> GetBasicResearcherDetails() 
 		{
@@ -181,7 +179,10 @@ namespace KIT206Assignment2.Database
 						foundResearcher.photo = rdr.GetString(8);
 						//Staff don't include degree
 						//Staff don't include supervisor
-						foundResearcher.position = new Position();
+						foundResearcher.position = new Position()
+						{
+							level = ParseEnum<Level>(rdr.GetString(11))
+						};
 					}
 					
 					else
