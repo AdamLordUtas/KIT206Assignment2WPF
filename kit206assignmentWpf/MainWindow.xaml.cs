@@ -81,6 +81,7 @@ namespace kit206assignmentWpf
             resDegree.Content = "";
             resSupervisor.Content = "";
             resPosition.Content = "";
+            resPerformance.Content = 0;
         }
 
         private void publicationListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
