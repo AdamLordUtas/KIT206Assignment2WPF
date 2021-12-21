@@ -29,6 +29,8 @@ namespace KIT206Assignment2.Control
             {
                 displayList.Add(item);
             }
+
+            FilterAlphabetically();
         }
 
         public Researcher GetFullDetails(int id) 

@@ -30,6 +30,7 @@ namespace kit206assignmentWpf
             InitializeComponent();
 
             resControl.LoadResearchers();
+            resControl.FilterAlphabetically();
 
             researcherListBox.ItemsSource = resControl.displayList;
             publicationListBox.ItemsSource = pubControl.displayList;
